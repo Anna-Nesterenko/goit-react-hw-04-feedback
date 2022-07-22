@@ -1,5 +1,4 @@
 export const StatisticsList = ({ good, neutral, bad, total, percent }) => {
-  //   console.log(values);
   return (
     <>
       <p>Good: {good}</p>

@@ -1,12 +1,9 @@
 import { Component } from 'react';
 import { FeedbackList } from './FeedbackList/FeedbackList';
-import { StatisticsList } from './StatisticsList/StatisticsList';
 import { SectionTitle } from './SectionTitle/SectionTitle';
-export class App extends Component {
-  static defaultProps = {
-    percent: 0,
-  };
+import { StatisticsList } from './StatisticsList/StatisticsList';
 
+export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -28,9 +25,11 @@ export class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    const { good, neutral, bad } = this.state;
-    const total = good + neutral + bad;
-    return Math.round((good / total) * 100);
+    const { good } = this.state;
+    const result =
+      this.countTotalFeedback() && good / this.countTotalFeedback();
+
+    return Math.round(result * 100);
   };
 
   render() {
@@ -39,8 +38,8 @@ export class App extends Component {
         <SectionTitle title="Please leave feedback" />
         <FeedbackList
           options={this.optionKeys}
-          handleIncrement={this.onLeaveFeedback}
-        ></FeedbackList>
+          handleFeedback={this.onLeaveFeedback}
+        />
 
         <SectionTitle title="Statistics" />
         <StatisticsList
@@ -49,7 +48,7 @@ export class App extends Component {
           bad={this.state.bad}
           total={this.countTotalFeedback()}
           percent={this.countPositiveFeedbackPercentage()}
-        ></StatisticsList>
+        />
       </>
     );
   }
