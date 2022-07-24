@@ -4,6 +4,8 @@ import { SectionTitle } from './SectionTitle/SectionTitle';
 import { StatisticsList } from './StatisticsList/StatisticsList';
 import { Notification } from './Notification/Notification';
 export class App extends Component {
+  static propTypes = {};
+
   state = {
     good: 0,
     neutral: 0,

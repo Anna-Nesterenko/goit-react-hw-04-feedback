@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { TitleWrapper } from './SectionTitle.styled';
 
 export const SectionTitle = ({ title, children }) => {
@@ -7,4 +9,9 @@ export const SectionTitle = ({ title, children }) => {
       {children}
     </TitleWrapper>
   );
+};
+
+SectionTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
 };
