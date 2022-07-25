@@ -3,6 +3,7 @@ import { FeedbackList } from './FeedbackList/FeedbackList';
 import { SectionTitle } from './SectionTitle/SectionTitle';
 import { StatisticsList } from './StatisticsList/StatisticsList';
 import { Notification } from './Notification/Notification';
+import { Container } from './SectionTitle/SectionTitle.styled';
 export class App extends Component {
   static propTypes = {};
 
@@ -39,7 +40,7 @@ export class App extends Component {
     const addFeedback = good > 0 || neutral > 0 || bad > 0;
 
     return (
-      <>
+      <Container>
         <SectionTitle title="Please leave feedback">
           <FeedbackList
             options={this.optionKeys}
@@ -60,7 +61,7 @@ export class App extends Component {
             <Notification message="There is no feedback" />
           )}
         </SectionTitle>
-      </>
+      </Container>
     );
   }
 }
