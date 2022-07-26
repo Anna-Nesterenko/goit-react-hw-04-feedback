@@ -14,7 +14,7 @@ export class App extends Component {
   };
 
   onLeaveFeedback = e => {
-    const btnName = e.currentTarget.name;
+    const btnName = e.currentTarget.textContent;
 
     this.setState(prevState => ({
       [btnName]: prevState[btnName] + 1,
@@ -51,9 +51,7 @@ export class App extends Component {
         <SectionTitle title="Statistics">
           {addFeedback ? (
             <StatisticsList
-              good={good}
-              neutral={neutral}
-              bad={bad}
+              {...this.state}
               total={this.countTotalFeedback()}
               percent={this.countPositiveFeedbackPercentage()}
             />
