@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from './FeedbackList.styled';
 
 export const FeedbackList = ({ options, handleFeedback }) => {
+  console.log('options :>> ', options);
   return (
     <>
       {options.map(el => (
